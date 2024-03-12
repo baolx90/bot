@@ -36,14 +36,14 @@ print(completion.choices[0].message)
    - macOS:
 
      ```bash
-     $ python -m venv venv
-     $ . venv/bin/activate
+     $ python -m venv .venv
+     $ . .venv/bin/activate
      ```
 
    - Windows:
      ```cmd
-     > python -m venv venv
-     > .\venv\Scripts\activate
+     > python -m venv .venv
+     > .\.venv\Scripts\activate
      ```
 
 4. Install the requirements:
