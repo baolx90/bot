@@ -164,7 +164,50 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         // Check if there are messages to load
-        
+        fetch("/get_messages")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              const chatContainer = document.querySelector(".messages");
+              data.messages.forEach((msg) => {
+                const roleDiv = document.createElement("div");
+                roleDiv.classList.add("message-role");
+                if (msg.role === "user") {
+                  roleDiv.classList.add("user");
+                }
+                roleDiv.textContent =
+                  msg.role.charAt(0).toUpperCase() + msg.role.slice(1);
+                chatContainer.appendChild(roleDiv);
+
+                const messageDiv = document.createElement("div");
+                messageDiv.classList.add(
+                  msg.role === "user" ? "user-message" : "assistant-message"
+                );
+                messageDiv.textContent = msg.content;
+
+                chatContainer.appendChild(messageDiv);
+              });
+            }
+          });
+
+        fetch("/get_ids")
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(
+              "Data: ",
+              data,
+              "Assistant ID: ",
+              data.assistant_id,
+              "Thread ID: ",
+              data.thread_id
+            );
+          });
+
+        fetch("/get_files")
+          .then((response) => response.json())
+          .then((data) => {
+            populateFiles(data.assistant_files);
+          });
       });
 
       document
