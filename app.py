@@ -1,12 +1,8 @@
 from flask import Flask, render_template, request, jsonify , url_for , redirect
 from werkzeug.utils import secure_filename
 import os
-from ast import literal_eval
-import pandas as pd
-import numpy as np
-from scipy.spatial.distance import cosine
-from utils.openai import answer_question
-from utils.crawl import generate_crawl,crawl
+from utils.openai import summarize_text
+from utils.crawl import summarize_url
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.environ.get("UPLOAD_FOLDER")
@@ -27,16 +23,16 @@ def index():
 @app.route("/chat", methods=["POST"])
 def chat():
     question = request.json["message"]
+    print(question)
     chat_history.append({"role": "user", "content": question})
-    text_content = answer_question(question=question)
+    text_content = summarize_text(text=question)
+    print(text_content)
     chat_history.append({"role": "assistant", "content": text_content})
     return jsonify(success=True, message=text_content)
 
 @app.route("/crawl", methods=["GET"])
 def crawl():
-    url = request.args.get('url')
-    generate_crawl(url)
-    return url
+    return summarize_url(request.args.get('url'))
 
 @app.route("/upload", methods=["POST"])
 def upload_file():

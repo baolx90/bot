@@ -9,17 +9,16 @@ from tenacity import retry, wait_random_exponential, stop_after_attempt
 import tiktoken
 import ast
 
-model="gpt-3.5-turbo-instruct"
 GPT_MODEL = "gpt-3.5-turbo-instruct"
 EMBEDDING_MODEL = "text-embedding-3-small"
-FILE_PATH="processed/embeddings.csv"
+FILE_PATH="processed/result.csv"
 MAX_TOKEN=150
 NO_ANSWER = "I don't know"
 
 client = OpenAI()
 OpenAI.api_key = os.environ.get("OPENAI_API_KEY")
 
-@retry(wait=wait_random_exponential(min=1, max=40), stop=stop_after_attempt(3))
+# @retry(wait=wait_random_exponential(min=1, max=40), stop=stop_after_attempt(3))
 def embedding_request(text, model=EMBEDDING_MODEL, **kwargs):
     text = text.replace("\n", " ")
     response = client.embeddings.create(input=[text], model=model, **kwargs)
@@ -67,7 +66,6 @@ def summarize_text(text, filepath=FILE_PATH):
     library_df = pd.read_csv(filepath).reset_index()
     library_df.columns = ["title","filepath", "embedding"]
     library_df["embedding"] = library_df["embedding"].apply(ast.literal_eval)
-    print(library_df)
     
     strings = strings_ranked_by_relatedness(text, library_df, top_n=1)
 

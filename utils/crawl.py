@@ -12,7 +12,7 @@ from csv import writer
 import pandas as pd
 
 DATA_URL='processed'
-EMBEDDING_FILE = DATA_URL+"/embeddings.csv"
+EMBEDDING_FILE = DATA_URL+"/result.csv"
 HTTP_URL_PATTERN = r'^http[s]{0,1}://.+$'
 
 # Create a directory to store the text files

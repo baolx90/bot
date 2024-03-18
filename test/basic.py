@@ -384,7 +384,8 @@ def answer_question(
 
     try:
         # Create a completions using the questin and context
-        response = client.completions.create(prompt=f"Answer the question based on the context below, and if the question can't be answered based on the context, say \"I don't know\"\n\nContext: {context}\n\n---\n\nQuestion: {question}\nAnswer:",
+        response = client.completions.create(
+            prompt=f"Answer the question based on the context below, and if the question can't be answered based on the context, say \"I don't know\"\n\nContext: {context}\n\n---\n\nQuestion: {question}\nAnswer:",
         temperature=0,
         max_tokens=max_tokens,
         top_p=1,

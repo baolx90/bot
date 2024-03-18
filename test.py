@@ -81,8 +81,8 @@ import re
 
 if __name__ == "__main__":
     # url = 'https://firegroup.io/about-us/'
-    url = 'https://zopi.crisp.help/en/'
-    # url = 'https://zopi.crisp.help/en/article/what-is-zopi-14hq2og/'
+    # url = 'https://zopi.crisp.help/en/'
+    url = 'https://zopi.crisp.help/en/article/what-is-zopi-14hq2og/'
     # url = 'https://wonderchat.io/'
     # url = 'https://zopi.crisp.help/en/article/how-to-set-pricing-rules-and-assign-cent-wregvi/'
     # summarize_url(url)
@@ -95,6 +95,10 @@ if __name__ == "__main__":
     # print(webpage)
     # crawl(url)
     question = 'what is zopi ?'
+    text_content = summarize_text(text=question)
+    print(text_content)
+
+    question = 'how to install ?'
     text_content = summarize_text(text=question)
     print(text_content)
     # answer_question('what is zopi ?')

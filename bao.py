@@ -1,13 +1,13 @@
 """
-inference_openai.py - text generation with OpenAI API
+bao.py - text generation with OpenAI API
 
     See https://platform.openai.com/docs/quickstart for more details.
 
 Usage:
-python inference_openai.py --prompt "The quick brown fox jumps over the lazy dog." --model "gpt-3.5-turbo" --temperature 0.5 --max_tokens 256 --n 1 --stop "."
+python bao.py --prompt "what is zopi ?" --model "gpt-3.5-turbo" --temperature 0.5 --max_tokens 256 --n 1 --stop "."
 
 Detailed usage:
-python inference_openai.py --help
+python bao.py --help
 
 Notes:
 - The OpenAI API key can be set using the OPENAI_API_KEY environment variable (recommended) or using the --api_key argument.
@@ -22,9 +22,13 @@ from pathlib import Path
 from typing import List, Optional, Union
 
 import fire
-import openai
+from openai import OpenAI
 from cleantext import clean
 from tqdm.auto import tqdm
+
+
+client = OpenAI()
+OpenAI.api_key = os.environ.get("OPENAI_API_KEY")
 
 AVAILABLE_MODELS = [
     "gpt-4",
@@ -88,14 +92,14 @@ def chat_generate_text(
         openai_api_key = os.environ.get("OPENAI_API_KEY", None)
     assert openai_api_key is not None, "OpenAI API key not found."
 
-    openai.api_key = openai_api_key
 
     messages = [
         {"role": "system", "content": f"{system_prompt}"},
         {"role": "user", "content": prompt},
     ]
+    print(messages)
 
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model=model,
         messages=messages,
         temperature=temperature,
@@ -103,11 +107,11 @@ def chat_generate_text(
         n=n,
         stop=stop,
         presence_penalty=presence_penalty,
-        frequency_penalty=frequency_penalty,
+        frequency_penalty=frequency_penalty
     )
 
     generated_texts = [
-        choice.message["content"].strip() for choice in response["choices"]
+        choice.message.content.strip() for choice in response.choices
     ]
     return generated_texts
 
@@ -190,10 +194,6 @@ def main(
     :param verbose: Whether to print the generated text to the console.
     """
     logger = logging.getLogger(__name__)
-    openai.api_key = api_key if api_key else os.getenv("OPENAI_API_KEY")
-    assert (
-        openai.api_key is not None
-    ), "API key not found - pass as arg or set environment variable OPENAI_API_KEY"
 
     prompts = []
     if input_path:
@@ -242,6 +242,7 @@ def main(
             presence_penalty=presence_penalty,
             frequency_penalty=frequency_penalty,
         )
+        print(generated_texts)
 
         if out_dir:
             out_path = Path(out_dir)
