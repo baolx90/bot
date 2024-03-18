@@ -23,10 +23,8 @@ def index():
 @app.route("/chat", methods=["POST"])
 def chat():
     question = request.json["message"]
-    print(question)
     chat_history.append({"role": "user", "content": question})
     text_content = summarize_text(text=question)
-    print(text_content)
     chat_history.append({"role": "assistant", "content": text_content})
     return jsonify(success=True, message=text_content)
 
