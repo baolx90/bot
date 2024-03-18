@@ -1,0 +1,128 @@
+Product Center
+ | Zopi Help DeskZopi Help DeskEnglishGo to websiteBackArticles on:Product CenterFind out how to import, customize, push, and update your products.CategoriesGetting StartedFind ProductProduct CenterOrder CenterTracking CenterIntegrationBilling & PricingFAQPolicyDropshipping IdeasIntroductionThe New Product Center - Dec 2023Zopi is back with yet another update that greatly benefits your dropshipping journey. Let’s explore!
+
+What’s New?
+
+Product Center
+
+AI Editor
+
+Update Supplier
+
+Product Center
+
+A new and centralized hub designed to manage product journeys automatically Product Center is here. No more unnecessary steps exist to manage your products after importing by switching two more tabs while the new update has been integrated into the Product Center where you can organize products effFew readersImported productsOne-Click Import Products to your ZopiTired of having to import and push the products manually to your Shopify store every single time? No more worries, with Zopi, importing products into your Shopify store is a breeze and can be done quickly.
+
+This article covers three convenient options for importing your products:
+
+Import from Find Product
+
+Import by source URL
+
+Import by Zopi Chrome Extension
+
+Import from Find Product
+
+Login to Zopi Find product.
+
+Search for the items you want, using keywords orFeaturedHow to Split Products for Shopify?In some cases, you will need to split one product into multiple new products.
+
+Zopi is here to help you! You can easily split products as you please. Check out the guide below to learn how!
+
+Access the Split Product Page
+
+Login to Zopi Product Center .
+
+On the right of the product card, click on the product name or tap the pen symbol in the actions area.
+
+
+
+Either click on the icon oFew readersWhat information will be imported along with my product?For making this clear, at the moment, when you've imported products by our app, this information will be contained with the product:
+
+Product's Variants:
+
+
+
+Description:
+
+
+
+Other than that, we can't import along with the product. We are so sorry for this inFew readersPush Products to Shopify storeAfter you add a product, Zopi imports the product's information including description, variants, and images. This product will be found in the Imported products section of the Product Center. Here you can keep all original information, or you can customize it to look more professional. Once done, the next step is to push the products from Zopi to your store.
+
+In this guide, you'll learn:
+
+How to customize product details
+
+How to push products to Shopify store
+
+How to customizeFew readersListed productsManage Product With Product CenterWe are excited to introduce you to our latest update  - Product Center
+
+This is a the feature on Zopi app that allows you to manage your imported and mapped products in one menu easily and efficiently. You can access the Product Center on the left sidebar of the app.
+
+Exploring the Imported Product List:
+
+The imported product list shows all the products that you have imported from various suppliers using the Zopi app. You can perform the following actions on the import product list:FeaturedThe New Master Product EditorWe’re thrilled to announce the latest feature of Zopi that will optimize your browsing experience. Here is what’s new:
+
+Product Editor
+
+Zopi uses the same interface as Shopify, making it easy to edit product details. As of now, editing product content has never been simpler or more effortless.
+
+First, you can click on the product name or tap the pen symbol in the actions area. This will open a window where you can customize the list of products.
+
+1. AI Writing
+
+The AI toolFew readersLearn How To Update SupplierZopi is back with an exciting new update that promises significant advantages for your dropshipping journey. In this comprehensive guide, you’ll gain:
+
+What is Update supplier?
+
+Why Is Update Supplier Important?
+
+How to Update Supplier
+
+What is Update supplier?
+
+Update Supplier is a new feature on Zopi that allows you to change the supplier of your mapped products or remap them with new variants. You can use this feature to find better suppliers for your products on AliExpressFew readersAuto Update - Suppliers Auto FindingAs you’re a dropshipper, it's crucial to find the right suppliers. Don’t miss out on the latest feature available from Zopi: Find Better Suppliers, which can maximize your chances of discovering high-potential products you’re selling.
+
+What’s Find Better Suppliers?
+
+This feature will help you find suppliers that match your pre-set criteria. Our app will send notifications to you when a supplier that meets your requirements is found. The frequency of updates is every 24 hours.
+
+How to set upFew readersHow to delete a product from my Shopify store?There are two ways you can delete Zopi products: in the Shopify admin and in the Zopi app.
+
+I. Deleting products in the Shopify Admin
+
+Go to the Product page.
+
+Select products you want to delete.
+
+Click on “...” and then choose “Delete products”
+
+
+
+Note: You can delete a specific product from its description page by clicking on the red button “Delete proFew readersProduct settingsHow to set Pricing Rules and Assign Cent?It's crucial to set the price for the products you sell in your stores. To make a profit, your selling price must be higher than what your supplier charges you. At Zopi, you can take advantage of the Pricing Rules feature to automate the pricing for your products. Read below to learn how to set it up in just a few steps.
+
+This article covers the following parts:
+
+Set Pricing Rules
+
+Set Assign cents
+
+Set Taxes for Products
+
+Let’s dive in!
+
+Set Pricing Rules
+
+You can simply fPopularTracking & Update: Cost & Stock ManagementDo you want to avoid losing sales due to out-of-stock or overpriced products? If your answer is yes, then you need to check out the new feature of Zopi: Cost & Stock Management.
+
+In this post, you'll learn:
+
+What is Cost & Stock Management?
+
+How to set up Tracking & Update
+
+Let's jump in!
+
+What is Cost & Stock Management?
+
+With this feature, you can monitor and update the cost and stock of your products in real-time. Zopi syncs the cost and stock of your products with AliExFew readersNot finding what you are looking for?Chat with us or send us an email.Chat with us© 2024 Zopi Help DeskWe run on Crisp Knowledge.

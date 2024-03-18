@@ -1,0 +1,120 @@
+Order Center
+ | Zopi Help DeskZopi Help DeskEnglishGo to websiteBackArticles on:Order CenterGuide to fulfill multiple orders automatically and manage your orders efficiently.CategoriesGetting StartedFind ProductProduct CenterOrder CenterTracking CenterIntegrationBilling & PricingFAQPolicyDropshipping IdeasIntroductionOrder Center: Now More Powerful and User-Friendly Than EverWe have some great news to share with you about the significant upgrades we have applied to the Orders Center. There are some changes you need pay attention to.
+
+In the new UI, we have modified the interface to align with Shopify’s push to line orders model (one page shows 25 line orders) to save your time and hassle from scrolling down every order.
+
+Information
+
+The logos of the product providers will be visible in the Source section. If you want to check the supplier link, you needFeaturedFulfill ordersAuto Order Fulfillment with the Zopi appAfter you get a new order with the status PAID & UNFULFILLED, Zopi will synchronize them and help you fulfill orders with some simple clicks.
+
+In this article, we will guide you step by step on how to do it.
+
+FULFILL ONE ORDER.
+
+Log in to your account on Zopi.
+
+Go to Orders Center To Order tab Click on Place order to fulfill the selected order.
+
+
+
+Confirm the shippFeaturedFulfill Orders Automatically with the Zopi Chrome extensionZopi can help you place orders efficiently, instead of having to process one by one manually on AliExpress. Once you set up things above properly, it will only take a few clicks to fulfill your orders with the Chrome extension. Explore the guide below to learn more.
+
+Auto Order Fulfillment
+
+Make sure that you’ve signed in to AliExpress and it is linked with Zopi account
+
+  (https://storage.crisp.chaFew readersHow to change a customer's shipping address before fulfilling the orderSome cases, after receiving an order in your Shopify store, the customer might contact you because they need to ship the order to a different address. That means you have to change the address before you fulfill order.
+
+There are two methods that you can utilize to change the addresses on the orders:
+
+1. On Shopify admin page.
+
+ Kindly follow the steps below to change the new shipping address:
+
+Go to the Shopify dashboard Orders Find the order Click on the order to open a managFew readersWhy can't I complete auto fulfill orders?For making it clear, when you are doing auto fulfill your order, there's some information of your order was missed and not completed, such as: city, country, phone number... so it will stop you and your order won't be able to be completed.
+
+Please kindly click on the selected order:
+
+
+
+Then, tap the pen symbol and see the fulfillment details:
+
+  (https://storage.crisp.chat/users/helpdesk/websiteFew readersManage ordersStatus of your ORDERSDo you want to know how to manage your orders more efficiently and provide better updates to your customers? If so, you need to use Zopi, a useful tool that lets you check and track the order statuses of your dropshipping products.
+
+SHOPIFY
+
+When you got new orders, the status on Shopify will be UNFULFILLED
+
+When the order has been shipped, the status on Shopify will be FULFILLED
+
+ZOPI
+
+When you got the order from your customer, the order will be in OrdersFew readersPlace Order Failed - ExplainedZopi always aims to help you fulfill the orders on AliExpress automatically. However, things do not always turn out how they should be. It is important to know some of the most common errors happening when you place orders on Zopi. Here's a compiled list of the errors and how to resolve them.
+
+Please note that the error messages that you encounter come directly from AliExpress. Therefore, they are sometimes not intuitive for users.
+
+Place Order Failed:
+
+Reason  : This occurs due to the cFew readersGetting the Order Tracking Code with AliExpress (AE) automaticallyTo help merchants and their customers always get the shipping status fastest, and in real-time, we have included a brand new function in Zopi newest version, which we believe very helpful for every drop-shipper. From now on, ALL the order tracking codes will be automatically synced to Zopi, and sent to your customers by the time it is generated on AliExpress.
+
+When you log in to Zopi app, one of the first important step is to connect with your AliExpress account:
+
+  (https://storage.crisp.cFew readersHow can I get Order Source ID?This is the Order ID on Ali Express. 
+
+
+
+After you complete your order on Zopi app, the Order ID source will automatically show the AliExpress Order ID and the order status on Zopi will switch to Awaiting Payment.
+
+
+
+  (https://storage.crisp.chat/users/helpdesk/website/6387e1136db7f00/screenshot4515dn0vp.pFew readersHow to get tracking code update?After you fulfill the order successfully by Zopi app, the order status will be changed to Awaiting Shipment and added the AliExpress No. 
+
+To get the tracking code update, simply follow these steps:
+
+Go to the Order Awaiting Shipment tab.
+
+Click on View Shipping status button next to each placed order to update the tracking code for one-by-one orders.
+
+OR click on Sync Order Status button on the top-right corner to quickly update tracking code for all placed ordFew readersHow to Cancel An OrderIf your customer wants to cancel an order after you place an order to your supplier, you will need to do 2 things:
+
+Cancel the Order from the supplier.
+
+Cancel the Order on Shopify.
+
+So, without any further ado, let’s roll the intro.
+
+Cancel the Order from the supplier
+
+How to cancel the AliExpress order
+
+You ONLY can cancel the order from the supplier IF the order status is Order Placed. If the order has been marked as Shipped status, you will NOT be able to cancel it.Few readersHow to Cancel Fulfilment Request on ShopifyOnce an order has Fulfillment in progress status, the Cancel order option is no longer available in Shopify. To get this option back, you first need to cancel the fulfillment request entirely and get it back to Unfulfilled.
+
+Today. you'll learn:
+
+Cancel/Revert the fulfillment request
+
+Cancel an order on Shopify
+
+Let’s explore one by one in this article.
+
+Cancel/Revert the fulfillment request
+
+Steps:
+
+From your Shopify admin, go to Orders.
+
+Click the order thatFew readersOrder settingsHow Zopi choose the Shipping Method for fulfillment?Wouldn't it be nice if there was a way to automate the shipping method, update your customer information and also send a note to your supplier that can save yourself some time and money?
+
+Well, there is! Order settings is a powerful tool that can help you easily streamline the fulfillment process and boost your profit margin.
+
+All you need to do is go to Zopi Dashboard -Orders  -Order settings.
+
+  (https://storage.crisp.chat/users/helpdesk/website/6387e1136db7f00/screenshot481Some readersHow can I write a note to our suppliers?You can simply go to Zopi Orders Order settings. There will be a section called Check-out Note to Supplier on AliExpress.
+
+There will be a section called Default message for suppliers when placing AliExpress orders.
+
+
+
+You can simply write a note there for your suppliers about your order, and describe it in detail to be correctly chosen.
+
+Some templates for your reference:Few readersNot finding what you are looking for?Chat with us or send us an email.Chat with us© 2024 Zopi Help DeskWe run on Crisp Knowledge.

@@ -45,7 +45,6 @@
           id="file-upload"
           name="file-upload"
           class="file-upload-input"
-          multiple
         />
         <label for="file-upload" class="file-upload-btn">Attach files</label>
       </div>
@@ -161,19 +160,15 @@
           filesDiv.appendChild(fileEntry);
         });
       }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        // Check if there are messages to load
-        
-      });
-
       document
         .getElementById("file-upload")
         .addEventListener("change", function (event) {
           const file = event.target.files[0];
+          console.log(file);
           if (!file) {
             return;
           }
+          console.log(2);
           const formData = new FormData();
           formData.append("file", file);
 
@@ -183,6 +178,7 @@
           })
             .then((response) => response.json())
             .then((data) => {
+              console.log(3);
               if (data.success) {
                 // Update and show the banner
                 const banner = document.getElementById("upload-banner");
@@ -193,12 +189,6 @@
                 setTimeout(() => {
                   banner.style.display = "none";
                 }, 3000);
-
-                fetch("/get_files")
-                  .then((response) => response.json())
-                  .then((data) => {
-                    populateFiles(data.assistant_files);
-                  });
               } else {
                 console.error("Upload failed:", data.message);
                 // Update and show the banner
