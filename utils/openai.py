@@ -1,4 +1,3 @@
-from typing import List, Optional
 from scipy import spatial
 from openai import OpenAI
 import pandas as pd
@@ -29,7 +28,7 @@ def strings_ranked_by_relatedness(
     df: pd.DataFrame,
     relatedness_fn=lambda x, y: 1 - spatial.distance.cosine(x, y),
     top_n: int = 100,
-) -> list[str]:
+):
     """Returns a list of strings and relatednesses, sorted from most related to least."""
     query_embedding = embedding_request(query)
     strings_and_relatednesses = [
