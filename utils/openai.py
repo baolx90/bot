@@ -8,11 +8,9 @@ from tenacity import retry, wait_random_exponential, stop_after_attempt
 import tiktoken
 import ast
 
-GPT_MODEL = "gpt-3.5-turbo-instruct"
+GPT_MODEL = "gpt-3.5-turbo"
 EMBEDDING_MODEL = "text-embedding-3-small"
 FILE_PATH="processed/result.csv"
-MAX_TOKEN=150
-NO_ANSWER = "I don't know"
 
 client = OpenAI()
 OpenAI.api_key = os.environ.get("OPENAI_API_KEY")
@@ -76,14 +74,20 @@ def summarize_text(text, filepath=FILE_PATH):
     chunks = create_chunks(fileText, 1500, tokenizer)
     text_chunks = [tokenizer.decode(chunk) for chunk in chunks]
 
-    prompt=f"Answer the question based on the context below, and if the question can't be answered based on the context, say {NO_ANSWER}\n\nContext: {text_chunks}\n\n---\n\nQuestion: {text}\nAnswer:",
     try:
-        response = client.completions.create(
+        response = client.chat.completions.create(
             model=GPT_MODEL,
-            prompt=prompt,
-            temperature=0,
-            max_tokens=MAX_TOKEN,
+            messages=[
+                {
+                    "role": "system", 
+                    "content": f"{text_chunks}"
+                },
+                {
+                    "role": "user", 
+                    "content": f"{text}"
+                }
+            ]
         )
-        return response.choices[0].text.strip()
+        return response.choices[0].message.content
     except Exception as e:
         return e
