@@ -52,18 +52,18 @@ def create_chunks(text, n, tokenizer):
 @tool
 def my_python_tool(text: str) -> str:
     library_df = pd.read_csv(debug_file(FILE_PATH)).reset_index()
-    library_df.columns = ["title","filepath", "embedding"]
-    library_df["embedding"] = library_df["embedding"].apply(ast.literal_eval)
-    
-    strings = strings_ranked_by_relatedness(text, library_df, top_n=1)
+    text_chunks = ''
+    if not library_df.empty:
+        library_df.columns = ["title","filepath", "embedding"]
+        library_df["embedding"] = library_df["embedding"].apply(ast.literal_eval)
+        
+        strings = strings_ranked_by_relatedness(text, library_df, top_n=1)
 
-    file = open(debug_file(strings[0]), "r", encoding="UTF-8")
-    fileText = file.read()
+        file = open(debug_file(strings[0]), "r", encoding="UTF-8")
+        fileText = file.read()
 
-    print(fileText)
+        tokenizer = tiktoken.get_encoding("cl100k_base")
 
-    tokenizer = tiktoken.get_encoding("cl100k_base")
-
-    chunks = create_chunks(fileText, 1500, tokenizer)
-    text_chunks = [tokenizer.decode(chunk) for chunk in chunks]
+        chunks = create_chunks(fileText, 1500, tokenizer)
+        text_chunks = [tokenizer.decode(chunk) for chunk in chunks]
     return text_chunks
