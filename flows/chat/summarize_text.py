@@ -7,7 +7,7 @@ from scipy.spatial.distance import cosine
 from scipy import spatial
 import os
 
-FILE_PATH="processed/result.csv"
+FILE_PATH=".runs/result.csv"
 
 def debug_file(file_path):
     if not os.path.exists(file_path):
