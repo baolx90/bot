@@ -1,0 +1,231 @@
+{
+  "package": {
+    "promptflow.tools.embedding.embedding": {
+      "name": "Embedding",
+      "description": "Use Open AI's embedding model to create an embedding vector representing the input text.",
+      "type": "python",
+      "module": "promptflow.tools.embedding",
+      "function": "embedding",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection",
+            "OpenAIConnection"
+          ]
+        },
+        "deployment_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "AzureOpenAIConnection"
+          ],
+          "capabilities": {
+            "completion": false,
+            "chat_completion": false,
+            "embeddings": true
+          },
+          "model_list": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ]
+        },
+        "model": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "OpenAIConnection"
+          ],
+          "enum": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ],
+          "allow_manual_entry": true
+        },
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "package": "promptflow-tools",
+      "package_version": "1.3.0"
+    },
+    "promptflow.tools.azure_content_safety.analyze_text": {
+      "module": "promptflow.tools.azure_content_safety",
+      "function": "analyze_text",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureContentSafetyConnection"
+          ]
+        },
+        "hate_category": {
+          "default": "medium_sensitivity",
+          "enum": [
+            "disable",
+            "low_sensitivity",
+            "medium_sensitivity",
+            "high_sensitivity"
+          ],
+          "type": [
+            "string"
+          ]
+        },
+        "self_harm_category": {
+          "default": "medium_sensitivity",
+          "enum": [
+            "disable",
+            "low_sensitivity",
+            "medium_sensitivity",
+            "high_sensitivity"
+          ],
+          "type": [
+            "string"
+          ]
+        },
+        "sexual_category": {
+          "default": "medium_sensitivity",
+          "enum": [
+            "disable",
+            "low_sensitivity",
+            "medium_sensitivity",
+            "high_sensitivity"
+          ],
+          "type": [
+            "string"
+          ]
+        },
+        "text": {
+          "type": [
+            "string"
+          ]
+        },
+        "violence_category": {
+          "default": "medium_sensitivity",
+          "enum": [
+            "disable",
+            "low_sensitivity",
+            "medium_sensitivity",
+            "high_sensitivity"
+          ],
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "name": "Content Safety (Text Analyze)",
+      "description": "Use Azure Content Safety to detect harmful content.",
+      "type": "python",
+      "deprecated_tools": [
+        "content_safety_text.tools.content_safety_text_tool.analyze_text"
+      ],
+      "package": "promptflow-tools",
+      "package_version": "1.3.0"
+    }
+  },
+  "code": {
+    "chat.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "contexts": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "chat.jinja2"
+    },
+    "summarize_text.py": {
+      "type": "python",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "summarize_text.py",
+      "function": "my_python_tool"
+    },
+    "../../utils/setup_env.py": {
+      "type": "python",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection",
+            "OpenAIConnection"
+          ]
+        },
+        "config": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "source": "../../utils/setup_env.py",
+      "function": "setup_env"
+    },
+    "rewrite_question.py": {
+      "type": "python",
+      "inputs": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "history": {
+          "type": [
+            "list"
+          ]
+        },
+        "env_ready_signal": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "rewrite_question.py",
+      "function": "my_python_tool"
+    },
+    "setup_env.py": {
+      "type": "python",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection",
+            "OpenAIConnection"
+          ]
+        }
+      },
+      "source": "setup_env.py",
+      "function": "setup_env"
+    },
+    "prompt_node_i5zl.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "prompt_node_i5zl.jinja2"
+    }
+  }
+}
