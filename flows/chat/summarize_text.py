@@ -7,7 +7,7 @@ from scipy.spatial.distance import cosine
 from scipy import spatial
 import os
 
-FILE_PATH=".runs/result.csv"
+FILE_PATH="processed/result.csv"
 
 def debug_file(file_path):
     if not os.path.exists(file_path):
@@ -51,9 +51,8 @@ def create_chunks(text, n, tokenizer):
 # Please update the function name/signature per need
 @tool
 def my_python_tool(text: str) -> str:
-    library_df = pd.read_csv(debug_file(FILE_PATH)).reset_index()
-    text_chunks = ''
-    if not library_df.empty:
+    try:
+        library_df = pd.read_csv(debug_file(FILE_PATH)).reset_index()
         library_df.columns = ["title","filepath", "embedding"]
         library_df["embedding"] = library_df["embedding"].apply(ast.literal_eval)
         
@@ -66,4 +65,7 @@ def my_python_tool(text: str) -> str:
 
         chunks = create_chunks(fileText, 1500, tokenizer)
         text_chunks = [tokenizer.decode(chunk) for chunk in chunks]
+    except Exception as e:
+        text_chunks = ''
+    
     return text_chunks

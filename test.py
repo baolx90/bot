@@ -12,7 +12,7 @@ chat_history = [
 ]
 
 def chat():
-    question = 'hello'
+    question = 'what is zopi ?'
     chat_history.append({"role": "user", "content": question})
 
     flow_path = "flows/chat"

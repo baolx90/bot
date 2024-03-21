@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 from promptflow import tool
 from csv import writer
 
-DATA_URL='.runs'
+DATA_URL='processed'
 EMBEDDING_FILE = DATA_URL+"/result.csv"
 HTTP_URL_PATTERN = r'^http[s]{0,1}://.+$'
 

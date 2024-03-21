@@ -9,7 +9,7 @@ inputs:
   question:
     type: string
     is_chat_input: true
-    default: hello
+    default: what is zopi ?
 outputs:
   answer:
     type: string
