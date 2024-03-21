@@ -58,93 +58,7 @@
     }
   },
   "code": {
-    "chat.jinja2": {
-      "type": "llm",
-      "inputs": {
-        "contexts": {
-          "type": [
-            "string"
-          ]
-        },
-        "chat_history": {
-          "type": [
-            "string"
-          ]
-        },
-        "question": {
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "source": "chat.jinja2"
-    },
-    "summarize_text.py": {
-      "type": "python",
-      "inputs": {
-        "text": {
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "source": "summarize_text.py",
-      "function": "my_python_tool"
-    },
-    "../../utils/setup_env.py": {
-      "type": "python",
-      "inputs": {
-        "connection": {
-          "type": [
-            "AzureOpenAIConnection",
-            "OpenAIConnection"
-          ]
-        },
-        "config": {
-          "type": [
-            "object"
-          ]
-        }
-      },
-      "source": "../../utils/setup_env.py",
-      "function": "setup_env"
-    },
-    "rewrite_question.py": {
-      "type": "python",
-      "inputs": {
-        "question": {
-          "type": [
-            "string"
-          ]
-        },
-        "history": {
-          "type": [
-            "list"
-          ]
-        },
-        "env_ready_signal": {
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "source": "rewrite_question.py",
-      "function": "my_python_tool"
-    },
-    "setup_env.py": {
-      "type": "python",
-      "inputs": {
-        "connection": {
-          "type": [
-            "AzureOpenAIConnection",
-            "OpenAIConnection"
-          ]
-        }
-      },
-      "source": "setup_env.py",
-      "function": "setup_env"
-    },
-    "prompt_node_i5zl.jinja2": {
+    "hello.jinja2": {
       "type": "prompt",
       "inputs": {
         "text": {
@@ -153,9 +67,44 @@
           ]
         }
       },
-      "source": "prompt_node_i5zl.jinja2"
+      "description": "Please replace the template with your own prompt.",
+      "source": "hello.jinja2"
+    },
+    "crawl.py": {
+      "type": "python",
+      "inputs": {
+        "url": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "crawl.py",
+      "function": "my_python_tool"
     },
     "summarize_data.py": {
+      "type": "python",
+      "inputs": {
+        "url": {
+          "type": [
+            "string"
+          ]
+        },
+        "content": {
+          "type": [
+            "string"
+          ]
+        },
+        "embedding": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "summarize_data.py",
+      "function": "my_python_tool"
+    },
+    "setup.py": {
       "type": "python",
       "inputs": {
         "input1": {
@@ -164,7 +113,7 @@
           ]
         }
       },
-      "source": "summarize_data.py",
+      "source": "setup.py",
       "function": "my_python_tool"
     }
   }

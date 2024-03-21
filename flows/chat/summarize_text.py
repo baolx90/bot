@@ -3,7 +3,6 @@ import ast
 import pandas as pd
 from promptflow import tool
 import tiktoken
-from utils.oai import OAIEmbedding, render_with_token_limit
 from scipy.spatial.distance import cosine
 from scipy import spatial
 import os
@@ -60,6 +59,8 @@ def my_python_tool(text: str) -> str:
 
     file = open(debug_file(strings[0]), "r", encoding="UTF-8")
     fileText = file.read()
+
+    print(fileText)
 
     tokenizer = tiktoken.get_encoding("cl100k_base")
 

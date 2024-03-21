@@ -9,7 +9,7 @@ inputs:
   question:
     type: string
     is_chat_input: true
-    default: làm thế nào để cài đặt zopi ?
+    default: hello
 outputs:
   answer:
     type: string
@@ -30,14 +30,6 @@ nodes:
     contexts: ${summarize_text.output}
   connection: open_ai_connection
   api: chat
-- name: setup_env
-  type: python
-  source:
-    type: code
-    path: setup_env.py
-  inputs:
-    connection: open_ai_connection
-  aggregation: false
 - name: summarize_text
   type: python
   source:

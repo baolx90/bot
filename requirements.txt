@@ -7,3 +7,4 @@ matplotlib
 scipy
 tenacity
 PyPDF2
+Flask

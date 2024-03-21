@@ -1,0 +1,37 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  url:
+    type: string
+    default: https://zopi.crisp.help/en/article/what-is-zopi-14hq2og/
+outputs:
+  result:
+    type: string
+    reference: ${crawl.output}
+nodes:
+- name: crawl
+  type: python
+  source:
+    type: code
+    path: crawl.py
+  inputs:
+    url: ${inputs.url}
+- name: summarize_data
+  type: python
+  source:
+    type: code
+    path: summarize_data.py
+  inputs:
+    url: ${inputs.url}
+    content: ${crawl.output}
+    embedding: ${embedding_url.output}
+- name: embedding_url
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: open_ai_connection
+    model: text-embedding-ada-002
+    input: ${inputs.url}
