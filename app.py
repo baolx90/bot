@@ -28,16 +28,14 @@ def chat():
     question = request.json["message"]
     chat_history.append({"role": "user", "content": question})
 
-    flow_path = "flows/chat"
-    flow_inputs = {
-        "question": question,
-        "chat_history":promptflow_history
-    }
+    flow_result = run_flow(
+        flow_path="flows/chat",
+        flow_inputs={
+            "question": question,
+            "chat_history": promptflow_history
+        }
+    )
 
-    flow_func = load_flow(flow_path)
-    flow_result = flow_func(**flow_inputs)
-    # text_content = summarize_text(text=question)
-    print(flow_result)
     chat_history.append({"role": "assistant", "content": flow_result['answer']})
     promptflow_history.append({
         "inputs": {

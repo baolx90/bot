@@ -15,7 +15,7 @@ nodes:
   inputs:
     connection: open_ai_connection
     model: text-embedding-ada-002
-    input: ${summary_content.output}
+    input: ${inputs.file_path}
 - name: summary_data
   type: python
   source:
@@ -24,10 +24,3 @@ nodes:
   inputs:
     file_path: ${inputs.file_path}
     embedding: ${embedding.output}
-- name: summary_content
-  type: python
-  source:
-    type: code
-    path: summary_content.py
-  inputs:
-    file_path: ${inputs.file_path}
