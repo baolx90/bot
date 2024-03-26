@@ -144,13 +144,6 @@ input[type="button"] {
   background-color: #f44336;
 }
 
-input[type="text"] {
-  padding: 12px 16px;
-  border: 1px solid #10a37f;
-  border-radius: 4px;
-  margin-bottom: 24px;
-}
-
 ::placeholder {
   color: #8e8ea0;
   opacity: 1;
@@ -293,7 +286,7 @@ input[type="text"] {
   align-self: flex-end;
 }
 
-#send-btn {
+#send-btn,.send-btn {
   width: 42px;
   height: 32px;
   border-radius: 4px;
@@ -301,7 +294,6 @@ input[type="text"] {
   background-color: #10a37f;
   color: #fff;
   cursor: pointer;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -316,7 +308,6 @@ input[type="text"] {
   border-right: 1px solid #c5c5d2; /* Optional: border to separate from the chat section */
 }
 .centered-text {
-  margin-top: 85%;
   padding: 20px;
   text-align: center; /* Center the text inside the div */
   width: 100%; /* Ensure the div takes up the full width */

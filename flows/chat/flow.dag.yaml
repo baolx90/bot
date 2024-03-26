@@ -10,6 +10,9 @@ inputs:
     type: string
     is_chat_input: true
     default: what is zopi ?
+  file_path:
+    type: string
+    default: processed/result.csv
 outputs:
   answer:
     type: string
@@ -30,13 +33,6 @@ nodes:
     contexts: ${summarize_text.output}
   connection: open_ai_connection
   api: chat
-- name: summarize_text
-  type: python
-  source:
-    type: code
-    path: summarize_text.py
-  inputs:
-    text: ${embedding_data.output}
 - name: embedding_data
   type: python
   source:
@@ -46,3 +42,11 @@ nodes:
     connection: open_ai_connection
     model: text-embedding-ada-002
     input: ${inputs.question}
+- name: summarize_text
+  type: python
+  source:
+    type: code
+    path: summarize_text.py
+  inputs:
+    text: ${embedding_data.output}
+    file_path: ${inputs.file_path}

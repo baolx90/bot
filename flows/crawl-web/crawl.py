@@ -7,21 +7,32 @@ import bs4
 from promptflow import tool
 import requests
 import pandas as pd
+from urllib.parse import urlparse
+from promptflow import tool
+from csv import writer
 
 # The inputs section will change based on the arguments of the tool function, after you save the code
 # Adding type to arguments and return value will help the system show the types properly
 # Please update the function name/signature per need
 DATA_URL='processed'
-EMBEDDING_FILE = DATA_URL+"/result.csv"
 
 # Create a directory to store the text files
 if not os.path.exists(DATA_URL+"/"):
     os.mkdir(DATA_URL+"/")
 
-if not os.path.exists(EMBEDDING_FILE):
-    # If the directory doesn't exist, create it and any necessary intermediate directories
-    df = pd.DataFrame(list())
-    df.to_csv(EMBEDDING_FILE)
+def get_domain(url):
+    return urlparse(url).netloc
+
+def generate_file(url: str, content: str):
+    local_domain = get_domain(url)
+    if not os.path.exists(DATA_URL+'/'+local_domain+"/"):
+            os.mkdir(DATA_URL+'/'+local_domain + "/")
+    fileName = url[8:].replace("/", "_") + ".txt"
+    filePath = DATA_URL+'/'+local_domain+'/'+fileName
+    with open(filePath, "w", encoding="UTF-8") as f:
+         f.write(content)
+    
+    return filePath
 
 @tool
 def my_python_tool(url: str) -> str:
@@ -40,7 +51,7 @@ def my_python_tool(url: str) -> str:
             # Parse the HTML content using BeautifulSoup
             soup = bs4.BeautifulSoup(response.text, "html.parser")
             soup.prettify()
-            return soup.get_text()
+            return generate_file(url=url,content=soup.get_text())
         else:
             msg = (
                 f"Get url failed with status code {response.status_code}.\nURL: {url}\nResponse: "

@@ -1,0 +1,33 @@
+inputs:
+  file_path:
+    type: string
+    default: processed/uploads/test.pdf
+outputs:
+  result:
+    type: string
+    reference: ${summary_data.output}
+nodes:
+- name: embedding
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: open_ai_connection
+    model: text-embedding-ada-002
+    input: ${summary_content.output}
+- name: summary_data
+  type: python
+  source:
+    type: code
+    path: summary_data.py
+  inputs:
+    file_path: ${inputs.file_path}
+    embedding: ${embedding.output}
+- name: summary_content
+  type: python
+  source:
+    type: code
+    path: summary_content.py
+  inputs:
+    file_path: ${inputs.file_path}

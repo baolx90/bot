@@ -61,17 +61,17 @@
     "chat.jinja2": {
       "type": "llm",
       "inputs": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
         "contexts": {
           "type": [
             "string"
           ]
         },
         "chat_history": {
-          "type": [
-            "string"
-          ]
-        },
-        "question": {
           "type": [
             "string"
           ]
@@ -83,6 +83,11 @@
       "type": "python",
       "inputs": {
         "text": {
+          "type": [
+            "string"
+          ]
+        },
+        "file_path": {
           "type": [
             "string"
           ]

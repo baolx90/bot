@@ -17,21 +17,3 @@ nodes:
     path: crawl.py
   inputs:
     url: ${inputs.url}
-- name: summarize_data
-  type: python
-  source:
-    type: code
-    path: summarize_data.py
-  inputs:
-    url: ${inputs.url}
-    content: ${crawl.output}
-    embedding: ${embedding_url.output}
-- name: embedding_url
-  type: python
-  source:
-    type: package
-    tool: promptflow.tools.embedding.embedding
-  inputs:
-    connection: open_ai_connection
-    model: text-embedding-ada-002
-    input: ${inputs.url}
