@@ -86,6 +86,11 @@ def crawl():
             message="Crawl url successfully and added to the storage"
         )
 
+@app.route("/reset", methods=["GET"])
+def reset_chat():
+    global chat_history
+    chat_history = []
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
