@@ -9,7 +9,11 @@ app.config['UPLOAD_FOLDER'] = os.environ.get("UPLOAD_FOLDER")
 ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg", "gif", "csv"}
 FILE_PATH="processed/result.csv"
 
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# if not os.path.exists(BASE_DIR + "/.pdfs"):
+#     os.mkdir(BASE_DIR + "/.pdfs")
+# if not os.path.exists(BASE_DIR + "/.index/.pdfs"):
+#     os.makedirs(BASE_DIR + "/.index/.pdfs")
 chat_history = []
 promptflow_history = []
 
@@ -30,24 +34,14 @@ def chat():
 
     flow_result = run_flow(
         flow_path="flows/chat",
-        flow_inputs={
-            "question": question,
-            "chat_history": promptflow_history
-        }
+        flow_inputs=dict(question=question, chat_history=promptflow_history)
     )
 
     chat_history.append({"role": "assistant", "content": flow_result['answer']})
-    promptflow_history.append({
-        "inputs": {
-            "question":question
-        }, 
-        "outputs": {
-            "answer":flow_result['answer']
-        }
-    })
+    promptflow_history.append(dict(inputs=dict(question=question), outputs=dict(answer=flow_result['answer'])))
     return jsonify(success=True, message=flow_result['answer'])
 
-def run_flow(flow_path:str , flow_inputs=object):
+def run_flow(flow_path: str, flow_inputs: object = object) -> object:
     flow_func = load_flow(flow_path)
     return flow_func(**flow_inputs)
 
@@ -57,16 +51,12 @@ def crawl():
     if url != '':
         crawl_web = run_flow(
             flow_path="flows/crawl-web", 
-            flow_inputs={
-                "url": url
-            }
+            flow_inputs=dict(url=url)
         )
 
         run_flow(
             flow_path="flows/summary-data",
-            flow_inputs={
-                "file_path": crawl_web['result']
-            }
+            flow_inputs=dict(file_path=crawl_web['result'])
         )
 
     if "file-upload" in request.files:
@@ -76,9 +66,7 @@ def crawl():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             run_flow(
                 flow_path="flows/summary-data",
-                flow_inputs={
-                    "file_path": app.config['UPLOAD_FOLDER']+"/"+filename
-                }
+                flow_inputs=dict(file_path=app.config['UPLOAD_FOLDER'] + "/" + filename)
             )
     
     return jsonify(

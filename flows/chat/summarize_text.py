@@ -22,10 +22,9 @@ def strings_ranked_by_relatedness(
     relatedness_fn=lambda x, y: 1 - spatial.distance.cosine(x, y),
     top_n: int = 100,
 ):  
-    strings_and_relatednesses = [
-        (row["filepath"], relatedness_fn(text, row["embedding"]))
-        for i, row in df.iterrows()
-    ]
+    strings_and_relatednesses = []
+    for i, row in df.iterrows():
+        strings_and_relatednesses.append((row["filepath"], relatedness_fn(text, row["embedding"])))
     strings_and_relatednesses.sort(key=lambda x: x[1], reverse=True)
     strings, relatednesses = zip(*strings_and_relatednesses)
     return strings[:top_n]
