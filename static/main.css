@@ -299,7 +299,7 @@ input[type="button"] {
 }
 
 .file-upload-section {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: space-around; /* Adjust content distribution */
   align-items: center; /* Center content horizontally */
