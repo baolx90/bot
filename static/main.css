@@ -300,6 +300,7 @@ input[type="button"] {
 
 .file-upload-section {
   /* display: flex; */
+  max-width: 600px;
   flex-direction: column;
   justify-content: space-around; /* Adjust content distribution */
   align-items: center; /* Center content horizontally */

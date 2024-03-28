@@ -88,6 +88,6 @@ def my_python_tool(text: str, file_path: str) -> str:
         chunks = create_chunks(fileText, 1500, tokenizer)
         text_chunks = [tokenizer.decode(chunk) for chunk in chunks]
     except Exception as e:
-        text_chunks = 'bao test'
+        text_chunks = ''
     
     return text_chunks
