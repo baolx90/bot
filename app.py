@@ -7,7 +7,7 @@ from promptflow import load_flow
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.environ.get("UPLOAD_FOLDER")
 ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg", "gif", "csv"}
-FILE_PATH="processed/result.csv"
+FILE_PATH="processed/result.pkl"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # if not os.path.exists(BASE_DIR + "/.pdfs"):
@@ -22,9 +22,11 @@ def allowed_file(filename):
 
 @app.route("/", methods=["GET"])
 def index():
-    df = pd.read_csv(FILE_PATH).reset_index()
-    df = df.iloc[:, 0:1]
-    df.columns = ["filepath"]
+    df = pd.DataFrame(list())
+    if os.path.exists(FILE_PATH):
+        df = pd.read_pickle(FILE_PATH)
+        df = df.iloc[:, 0:1]
+        df.columns = ["filepath"]
     return render_template("index.html", chat_history=chat_history, files=df)
 
 @app.route("/chat", methods=["POST"])

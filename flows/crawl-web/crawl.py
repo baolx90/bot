@@ -10,6 +10,7 @@ import pandas as pd
 from urllib.parse import urlparse
 from promptflow import tool
 from csv import writer
+import pickle
 
 # The inputs section will change based on the arguments of the tool function, after you save the code
 # Adding type to arguments and return value will help the system show the types properly
@@ -25,12 +26,15 @@ def get_domain(url):
 
 def generate_file(url: str, content: str):
     local_domain = get_domain(url)
+
     if not os.path.exists(DATA_URL+'/'+local_domain+"/"):
             os.mkdir(DATA_URL+'/'+local_domain + "/")
-    fileName = url[8:].replace("/", "_") + ".txt"
+
+    fileName = url[8:].replace("/", "_")+".pkl"
     filePath = DATA_URL+'/'+local_domain+'/'+fileName
-    with open(filePath, "w", encoding="UTF-8") as f:
-         f.write(content)
+    outfile = open(filePath,'wb')
+    pickle.dump(content,outfile)
+    outfile.close()
     
     return filePath
 
