@@ -64,10 +64,10 @@ def crawl():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            run_flow(
-                flow_path="flows/summary-data",
-                flow_inputs=dict(file_path=app.config['UPLOAD_FOLDER'] + "/" + filename)
-            )
+            # run_flow(
+            #     flow_path="flows/summary-data",
+            #     flow_inputs=dict(file_path=app.config['UPLOAD_FOLDER'] + "/" + filename)
+            # )
     
     return jsonify(
             success=True,
