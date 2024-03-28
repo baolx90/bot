@@ -34,7 +34,7 @@ def chat():
 
     flow_result = run_flow(
         flow_path="flows/chat",
-        flow_inputs=dict(question=question, chat_history=promptflow_history)
+        flow_inputs=dict(question=question, chat_history=promptflow_history, file_path=FILE_PATH)
     )
 
     chat_history.append({"role": "assistant", "content": flow_result['answer']})
