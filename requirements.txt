@@ -8,3 +8,4 @@ scipy
 tenacity
 PyPDF2
 Flask
+openai

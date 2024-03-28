@@ -12,7 +12,7 @@ inputs:
     default: what is zopi ?
   file_path:
     type: string
-    default: processed/result.csv
+    default: ../../processed/result.csv
 outputs:
   answer:
     type: string
